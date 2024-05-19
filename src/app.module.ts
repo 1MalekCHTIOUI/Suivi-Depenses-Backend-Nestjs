@@ -7,6 +7,7 @@ import { UserModule } from './user/user.module';
 import { AuthMiddleware } from './user/middlewares/auth.middleware';
 import { CategoryModule } from './category/category.module';
 import { TagModule } from './tag/tag.module';
+import { DepenseModule } from './depense/depense.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { TagModule } from './tag/tag.module';
     UserModule,
     CategoryModule,
     TagModule,
+    DepenseModule,
   ],
   controllers: [AppController],
   providers: [AppService],
