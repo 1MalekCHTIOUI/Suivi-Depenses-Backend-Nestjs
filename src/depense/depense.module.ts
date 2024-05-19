@@ -6,7 +6,11 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { DepenseEntity, DepenseEntitySchema } from './depense.entity';
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: DepenseEntity.name, schema: DepenseEntitySchema }]),
+  imports: [
+    MongooseModule.forFeature([
+      { name: DepenseEntity.name, schema: DepenseEntitySchema },
+    ]),
+  ],
   controllers: [DepenseController],
   providers: [DepenseService],
 })
