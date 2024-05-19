@@ -18,7 +18,7 @@ export class DepenseController {
 
   @Post()
   async createDepense(@Body() DepenseDto: DepenseDto): Promise<DepenseEntity> {
-    return this.depenseService.crateDepense(DepenseDto);
+    return this.depenseService.createDepense(DepenseDto);
   }
 
   @Get('user/:userId')

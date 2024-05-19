@@ -27,6 +27,10 @@ export class UserService {
     return createdUser.save();
   }
 
+  async getUserById(id: string): Promise<UserEntity> {
+    return this.userModel.findById(id);
+  }
+
   async login(loginDto: LoginDto): Promise<UserEntity> {
     const user = await this.userModel
       .findOne({ email: loginDto.email })
