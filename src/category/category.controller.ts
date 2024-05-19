@@ -10,7 +10,7 @@ import {
 import { CategoryService } from './category.service';
 import { CategoryDto } from './dto/category.dto';
 
-@Controller('categories')
+@Controller('api/categories')
 export class CategoryController {
   constructor(private readonly categoryService: CategoryService) {}
 

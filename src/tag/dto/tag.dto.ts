@@ -5,4 +5,5 @@ export class TagDto {
   name: string;
   description: string;
   color: string;
+  userId: string;
 }

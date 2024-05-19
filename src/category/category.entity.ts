@@ -12,7 +12,11 @@ export class CategoryEntity {
   @Prop()
   budget: string;
 
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'UserEntity' })
+  @Prop({
+    required: true,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'UserEntity',
+  })
   userId: string;
 }
 export const CategoryEntitySchema =

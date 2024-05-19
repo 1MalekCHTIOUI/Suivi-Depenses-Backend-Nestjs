@@ -15,7 +15,7 @@ export class TagService {
   }
 
   async getTagsByUser(id: string): Promise<TagEntity[]> {
-    return this.tagModel.find({ _id: id }).populate('userId');
+    return this.tagModel.find({ userId: id }).populate('userId');
   }
 
   async getTag(tagId: string): Promise<TagEntity> {

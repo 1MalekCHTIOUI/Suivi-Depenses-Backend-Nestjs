@@ -12,7 +12,7 @@ import {
 import { TagService } from './tag.service';
 import { TagDto } from './dto/tag.dto';
 
-@Controller('tags')
+@Controller('api/tags')
 export class TagController {
   constructor(private readonly tagService: TagService) {}
 
@@ -32,11 +32,16 @@ export class TagController {
 
   @Post()
   create(@Body() tagDto: TagDto): Promise<TagDto> {
+    console.log(tagDto);
+
     return this.tagService.createTag(tagDto);
   }
 
   @Put(':id')
   update(@Param('id') id: string, @Body() tagDto: TagDto): Promise<TagDto> {
+    console.log(id);
+    console.log(TagDto);
+
     return this.tagService.updateTag(id, tagDto);
   }
 

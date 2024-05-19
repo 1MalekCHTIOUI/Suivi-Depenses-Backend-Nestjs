@@ -1,12 +1,13 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { UserEntity } from './user.entity';
+import { UserEntity, UserEntitySchema } from './user.entity';
 import { Model } from 'mongoose';
 import { UserResponseType } from './types/userResponse.type';
 import { CreateUserDto } from './dto/user.dto';
 import { LoginDto } from './dto/login.dto';
 import { compare } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
+import { DecodeResponseType } from './types/decodeResponse.type';
 
 @Injectable()
 export class UserService {
@@ -42,10 +43,17 @@ export class UserService {
 
   buildUserResponse(userEntity: UserEntity): UserResponseType {
     return {
-      username: userEntity.username,
-      name: userEntity.name,
-      email: userEntity.email,
+      // username: userEntity.username,
+      // name: userEntity.name,
+      // email: userEntity.email,
       token: this.generateJwt(userEntity),
+    };
+  }
+  buildDecodeResponse(userEntity: any): any {
+    return {
+      id: userEntity.id,
+      username: userEntity.username,
+      email: userEntity.email,
     };
   }
 

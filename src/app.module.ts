@@ -20,7 +20,11 @@ import { TagModule } from './tag/tag.module';
   providers: [AppService],
 })
 export class AppModule {
-  private privateRoutes = ['user', 'tags', 'categories'];
+  private privateRoutes = [
+    'tags',
+    'categories',
+    { path: '/api/auth/user', method: RequestMethod.ALL },
+  ];
 
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(AuthMiddleware).forRoutes(...this.privateRoutes);
