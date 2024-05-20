@@ -14,7 +14,7 @@ import { MailerModule as MailModule } from '@nestjs-modules/mailer';
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    MongooseModule.forRoot(process.env.MONGO_LOCAL_URL),
+    MongooseModule.forRoot("mongodb://127.0.0.1/depenses_nest"), /* process.env.MONGO_LOCAL_URL */
     UserModule,
     CategoryModule,
     TagModule,

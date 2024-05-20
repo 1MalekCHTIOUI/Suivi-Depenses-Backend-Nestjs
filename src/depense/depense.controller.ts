@@ -37,14 +37,13 @@ export class DepenseController {
     return this.depenseService.getDepenseById(depenseId);
   }
 
-  @Put(':depenseId')
+  @Put(':depenseId') 
   async updateDepense(
     @Param('depenseId') depenseId: string,
     @Body() DepenseDto: DepenseDto,
   ): Promise<DepenseEntity> {
     return this.depenseService.updateDepense(depenseId, DepenseDto);
-  }
-
+  } 
   @Delete(':depenseId')
   async deleteDepense(
     @Param('depenseId') depenseId: string,
