@@ -13,17 +13,25 @@ export class DepenseEntity {
   @Prop({ required: true })
   description: string;
 
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true })
+  @Prop({
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'UserEntity',
+    required: true,
+  })
   userId: string;
 
   @Prop({
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Category',
+    ref: 'CategoryEntity',
     required: true,
   })
   categoryId: string;
 
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Tag', required: true })
+  @Prop({
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'TagEntity',
+    required: true,
+  })
   tagId: string;
 }
 

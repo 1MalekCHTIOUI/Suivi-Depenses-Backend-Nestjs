@@ -39,9 +39,10 @@ import { MailerModule as MailModule } from '@nestjs-modules/mailer';
 })
 export class AppModule {
   private privateRoutes = [
-    'tags',
-    'categories',
     { path: '/api/auth/user', method: RequestMethod.ALL },
+    { path: '/api/depenses', method: RequestMethod.ALL },
+    { path: '/api/tags', method: RequestMethod.ALL },
+    { path: '/api/categories', method: RequestMethod.ALL },
   ];
 
   configure(consumer: MiddlewareConsumer) {

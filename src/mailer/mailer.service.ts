@@ -6,19 +6,12 @@ export class MailerService {
   constructor(private readonly mailService: MS) {}
 
   async sendMail(receiver: string, subject: string, message: string) {
-    console.log({
-      from: process.env.EMAIL_USERNAME,
-      to: receiver,
-      subject: subject,
-      text: message,
-    });
-
     await this.mailService
       .sendMail({
         from: process.env.EMAIL_USERNAME,
         to: receiver,
         subject: subject,
-        text: message,
+        html: message,
       })
       .then((result) => {
         console.log('Mail sent successfully:', result.envelope);

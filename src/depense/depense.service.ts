@@ -24,18 +24,24 @@ export class DepenseService {
         depenseDto.montant,
       );
       const user = await this.userService.getUserById(depenseDto.userId);
-      if (status) {
-        let options = {
-          message: `You just exceeded your budget for this category by: ${exceededAmount}, Please check your <a style="color:red" href="http://localhost:4200/list-depense"><strong>expenses</strong></a> and adjust your budget accordingly.`,
-          subject: 'Budget Exceeded',
-          to: user.email,
-        };
-        this.mailerService.sendMail(
-          options.to,
-          options.subject,
-          options.message,
-        );
+      console.log(user);
+      try {
+        if (status) {
+          let options = {
+            message: `You just exceeded your budget for this category by: ${exceededAmount}, Please check your <a style="color:red" href="http://localhost:4200/list-depense"><strong>expenses</strong></a> and adjust your budget accordingly.`,
+            subject: 'Budget Exceeded',
+            to: user.email,
+          };
+          this.mailerService.sendMail(
+            options.to,
+            options.subject,
+            options.message,
+          );
+        }
+      } catch (error) {
+        console.log(error);
       }
+
       return this.depenseModel.create(depenseDto);
     } catch (error) {
       console.log(error);

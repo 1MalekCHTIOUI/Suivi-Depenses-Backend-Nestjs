@@ -43,6 +43,7 @@ export class UserController {
     if (!request.user) {
       throw new HttpException('Unauthorized', HttpStatus.UNAUTHORIZED);
     }
+    console.log(request.user);
 
     return this.userService.buildDecodeResponse(request.user);
   }

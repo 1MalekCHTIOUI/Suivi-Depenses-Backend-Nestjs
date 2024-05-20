@@ -18,6 +18,8 @@ export class DepenseController {
 
   @Post()
   async createDepense(@Body() DepenseDto: DepenseDto): Promise<DepenseEntity> {
+    console.log('CONTROLLER: ', DepenseDto);
+
     return this.depenseService.createDepense(DepenseDto);
   }
 
